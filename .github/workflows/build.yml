@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-16.04
 
     env:
-      VENDOR: volla
-      DEVICE: yggdrasil
+      VENDOR: infinix
+      DEVICE: Infinix-X627STU
       ANDROID_ROOT: /home/runner/work/orangefox/
 
     steps:
@@ -49,8 +49,7 @@ jobs:
         cd $ANDROID_ROOT
         repo init -u https://gitlab.com/OrangeFox/Manifest.git -b fox_9.0 --depth=1
         repo sync -j8 -c 
-        git clone https://github.com/luka177/android_kernel_volla_mt6763 -b lineage-16.0 kernel/volla/mt6763 
-        git clone https://github.com/luka177/android_device_volla_yggdrasil $ANDROID_ROOT/device/volla/yggdrasil
+        git clone https://github.com/00p513-dev/device_infinix_Infinix-X627STU device/infinix/Infinix-X627STY -b main --depth=1 
  
     - name: Build recovery
       run: |
@@ -61,7 +60,5 @@ jobs:
     - name : Upload recovery image
       uses: actions/upload-artifact@master
       with:
-        name: Recovery image
-        path: /home/runner/work/orangefox/out/target/product/yggdrasil/OrangeFox-Unofficial-yggdrasil.zip
-
-    
+        name: Images
+        path: /home/runner/work/orangefox/out/target/product/*/*.img
