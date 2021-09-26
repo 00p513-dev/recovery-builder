@@ -44,7 +44,7 @@ jobs:
         cd $ANDROID_ROOT
         repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b twrp-9.0 --depth=1
         repo sync -j8 -c 
-        git clone https://github.com/00p513-dev/device_infinix_spinel device/infinix/spinel -b main --depth=1 
+        git clone https://github.com/00p513-dev/device_infinix_spinel device/infinix/spinel -b twrp-9.0 --depth=1 
  
     - name: Build recovery
       run: |
