@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-18.04
 
     env:
-      VENDOR: infinix
-      DEVICE: spinel
-      ANDROID_ROOT: /home/runner/work/orangefox/
+      VENDOR: teracube
+      DEVICE: v7101o
+      ANDROID_ROOT: /home/runner/work/twrp
 
     steps:
     - name: Checkout
@@ -35,16 +35,16 @@ jobs:
         mkdir -p ~/bin
         wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
         chmod +x ~/bin/repo
-        git config --global user.name "OrangeFox Volla Phone CI"
+        git config --global user.name "TWRP CI"
         git config --global user.email "thisemaildoesnotexist@exist.com"
     - name: Downloading source code
       run: |
         source of.env
         mkdir -p $ANDROID_ROOT
         cd $ANDROID_ROOT
-        repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b twrp-9.0 --depth=1
+        repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b twrp-10.0 --depth=1
         repo sync -j8 -c 
-        git clone https://github.com/00p513-dev/device_infinix_spinel device/infinix/spinel -b twrp-9.0 --depth=1 
+        git clone https://github.com/00p513-dev/android_device_teracube_v7101o device/teracube/v7101o -b twrp-10 --depth=1 
  
     - name: Build recovery
       run: |
