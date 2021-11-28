@@ -6,7 +6,7 @@ cd $ANDROID_ROOT
 source build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL="C"
-lunch omni_v7101o-eng
+lunch twrp_v7101o-eng
 #mkdir -p /home/runner/work/orangefox/out/target/product/yggdrasil/system/etc
 #touch /home/runner/work/orangefox/out/target/product/yggdrasil/system/etc/ld.config.txt
 make -j$(nproc) recoveryimage
